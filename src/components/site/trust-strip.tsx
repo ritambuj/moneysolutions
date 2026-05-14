@@ -34,7 +34,10 @@ const partners = [
 
 export function TrustStrip() {
   return (
-    <section className="border-y border-border bg-white py-12 sm:py-14">
+    <section
+      id="lending-partners"
+      className="border-y border-border bg-white py-12 sm:py-14"
+    >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 gap-y-8 sm:grid-cols-4 sm:gap-y-0">
           {stats.map(({ icon: Icon, value, label }) => (

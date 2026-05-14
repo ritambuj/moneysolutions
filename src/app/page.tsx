@@ -1,4 +1,5 @@
 import { Header } from "@/components/site/header";
+import { HeroPartnerLogos } from "@/components/site/hero-partner-logos";
 import { EmiCalculator } from "@/components/site/emi-calculator";
 import { TrustStrip } from "@/components/site/trust-strip";
 import { Footer } from "@/components/site/footer";
@@ -37,6 +38,7 @@ export default function HomePage() {
                   Download app
                 </a>
               </div>
+              <HeroPartnerLogos />
             </div>
           </div>
           <div
