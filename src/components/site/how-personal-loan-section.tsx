@@ -31,10 +31,10 @@ const ROW_PX = 280;
 const FIRST_DOT_CENTER = ROW_PX / 2;
 const LINE_HEIGHT = (STEPS.length - 1) * ROW_PX;
 
-const SKY = "#E8F5FD";
+const SKY = "#f0f7fc";
 const MIDNIGHT = "#14142B";
 const SUB_GREY = "#5C6670";
-const RAIL = "#0e3d3a";
+const RAIL = "#1e40af";
 const DOT_BORDER = "#C8CED4";
 
 /** Pick the step row whose vertical centre is closest to the viewport centre (stable while scrolling). */

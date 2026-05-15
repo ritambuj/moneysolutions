@@ -52,7 +52,7 @@ export function Header() {
         <div className="flex items-center gap-2">
           <a
             href="/apply"
-            className="hidden md:inline-flex h-10 items-center rounded-full bg-accent px-5 text-sm font-semibold text-accent-foreground shadow-sm transition hover:brightness-95"
+            className="hidden md:inline-flex h-10 items-center rounded-full bg-primary px-5 text-sm font-semibold text-primary-foreground shadow-sm transition hover:bg-[var(--primary-hover)]"
           >
             Apply for loan
           </a>
@@ -216,7 +216,7 @@ function MobileDrawer({ onClose }: { onClose: () => void }) {
           <div className="mt-4 px-2">
             <a
               href="/apply"
-              className="inline-flex h-11 w-full items-center justify-center rounded-full bg-accent text-sm font-semibold text-accent-foreground"
+              className="inline-flex h-11 w-full items-center justify-center rounded-full bg-primary text-sm font-semibold text-primary-foreground"
             >
               Apply for loan
             </a>

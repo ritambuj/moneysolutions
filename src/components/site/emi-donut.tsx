@@ -30,7 +30,7 @@ export function EmiDonut({
             dataKey="value"
             stroke="none"
           >
-            <Cell fill="#C8FB3C" />
+            <Cell fill="#2563eb" />
             <Cell fill="rgba(255,255,255,0.28)" />
           </Pie>
         </PieChart>

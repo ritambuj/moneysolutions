@@ -16,8 +16,6 @@ const STORAGE_KEY = "ms-timed-promo-dismissed";
 /** Show after the user has been on the page this long (ms). */
 const SHOW_AFTER_MS = 22_000;
 
-const CHERRY = "#e11d63";
-
 const perks = [
   {
     icon: Monitor,
@@ -115,11 +113,11 @@ export function TimedPromoModal() {
             className="mt-1 max-w-[18rem] text-left text-base font-bold leading-snug lg:mx-0 lg:max-w-[18rem] lg:text-[32px] lg:leading-[50px]"
           >
             Get up to{" "}
-            <span style={{ color: CHERRY }} className="whitespace-nowrap">
+            <span className="whitespace-nowrap text-primary">
               ₹10 lakhs
             </span>{" "}
             in just{" "}
-            <span style={{ color: CHERRY }} className="whitespace-nowrap">
+            <span className="whitespace-nowrap text-primary">
               2 minutes!
             </span>
           </h1>

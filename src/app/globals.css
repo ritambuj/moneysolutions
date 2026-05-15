@@ -2,17 +2,21 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #0e1f23;
-  --muted: #f4f6f8;
-  --muted-foreground: #5b6b73;
-  --border: #e6ebee;
-  --primary: #0e3d3a;
+  --foreground: #0f172a;
+  --muted: #f1f5f9;
+  --muted-foreground: #64748b;
+  --border: #e2e8f0;
+  --primary: #1e40af;
+  --primary-hover: #1d4ed8;
+  --primary-light: #2563eb;
   --primary-foreground: #ffffff;
-  --accent: #c8fb3c;
-  --accent-foreground: #0e3d3a;
-  --ring: #0e3d3a;
+  --accent: #ffffff;
+  --accent-foreground: #1e40af;
+  --ring: #1e40af;
   --card: #ffffff;
-  --card-foreground: #0e1f23;
+  --card-foreground: #0f172a;
+  --surface-soft: #f0f7fc;
+  --footer: #172554;
 }
 
 @theme inline {
@@ -22,12 +26,16 @@
   --color-muted-foreground: var(--muted-foreground);
   --color-border: var(--border);
   --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-light: var(--primary-light);
   --color-primary-foreground: var(--primary-foreground);
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
   --color-ring: var(--ring);
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
+  --color-surface-soft: var(--surface-soft);
+  --color-footer: var(--footer);
   --font-sans: var(--font-inter);
   --font-display: var(--font-inter);
 }
@@ -52,8 +60,8 @@ body {
     to right,
     var(--primary) 0%,
     var(--primary) var(--slider-fill, 0%),
-    #e6ebee var(--slider-fill, 0%),
-    #e6ebee 100%
+    var(--border) var(--slider-fill, 0%),
+    var(--border) 100%
   );
 }
 

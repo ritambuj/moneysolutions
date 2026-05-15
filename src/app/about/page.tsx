@@ -67,7 +67,7 @@ export default function AboutPage() {
 
       <StatsBand />
 
-      <section className="bg-[#f8fafb] py-16 lg:py-20">
+      <section className="bg-surface-soft py-16 lg:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-center text-2xl font-semibold sm:text-3xl">
             Leadership

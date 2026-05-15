@@ -27,7 +27,7 @@ export function WhyChooseSection() {
   return (
     <section
       id="why-choose"
-      className="border-t border-border bg-[#f8fafb] py-16 lg:py-24"
+      className="border-t border-border bg-surface-soft py-16 lg:py-24"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-2 lg:items-center lg:gap-16">

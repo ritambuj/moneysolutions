@@ -54,7 +54,7 @@ function OffersHeroArt() {
 
 export function EligibleOffersView() {
   return (
-    <div className="min-h-0 flex-1 bg-gradient-to-b from-[#eef5f8] via-[#f4f8fb] to-white pb-16 pt-8 sm:pb-20 sm:pt-10">
+    <div className="min-h-0 flex-1 bg-gradient-to-b from-surface-soft via-surface-soft/60 to-white pb-16 pt-8 sm:pb-20 sm:pt-10">
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
         <Link
           href="/"
@@ -173,7 +173,7 @@ export function EligibleOffersView() {
                     <div className="flex flex-col items-stretch gap-2 sm:flex-row sm:items-center sm:gap-3">
                       <button
                         type="button"
-                        className="inline-flex items-center justify-center rounded-lg bg-accent px-4 py-2.5 text-xs font-bold uppercase tracking-wide text-accent-foreground shadow-sm transition hover:brightness-95 sm:text-sm"
+                        className="inline-flex items-center justify-center rounded-lg bg-primary px-4 py-2.5 text-xs font-bold uppercase tracking-wide text-primary-foreground shadow-sm transition hover:bg-[var(--primary-hover)] sm:text-sm"
                       >
                         Apply now
                       </button>

@@ -50,11 +50,11 @@ export default function HomePage() {
           </div>
           <div
             aria-hidden
-            className="pointer-events-none absolute -right-24 -top-24 h-[420px] w-[420px] rounded-full bg-accent/20 blur-3xl"
+            className="pointer-events-none absolute -right-24 -top-24 h-[420px] w-[420px] rounded-full bg-white/15 blur-3xl"
           />
           <div
             aria-hidden
-            className="pointer-events-none absolute -bottom-32 right-1/3 h-[300px] w-[300px] rounded-full bg-accent/10 blur-3xl"
+            className="pointer-events-none absolute -bottom-32 right-1/3 h-[300px] w-[300px] rounded-full bg-white/10 blur-3xl"
           />
         </section>
 

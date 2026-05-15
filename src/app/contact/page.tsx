@@ -63,7 +63,7 @@ export default function ContactPage() {
               </ul>
             </div>
 
-            <div className="rounded-2xl border border-accent/30 bg-accent/10 p-6">
+            <div className="rounded-2xl border border-primary/20 bg-surface-soft p-6">
               <h3 className="font-semibold text-foreground">Refer &amp; earn</h3>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                 Refer someone for a loan and earn up to ₹5,000 when their loan is

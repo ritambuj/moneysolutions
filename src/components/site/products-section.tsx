@@ -137,7 +137,7 @@ export function ProductsSection() {
                   href={p.href}
                   className="flex gap-4 rounded-xl border border-border bg-white p-4 transition hover:border-primary/25 hover:shadow-md"
                 >
-                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-accent/40 text-primary">
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
                     <Icon className="h-5 w-5" aria-hidden />
                   </span>
                   <span className="min-w-0">

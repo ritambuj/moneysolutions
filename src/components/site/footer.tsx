@@ -60,7 +60,7 @@ const socials = [
 export function Footer() {
   const year = new Date().getFullYear();
   return (
-    <footer className="bg-[#0A2A28] text-white">
+    <footer className="bg-footer text-white">
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-[1.1fr_2fr]">
           <div>

@@ -65,7 +65,7 @@ export function ApplyLoanWizard() {
               <div className="mb-8 flex justify-center sm:mb-10">
                 <a
                   href="#"
-                  className="inline-flex items-center gap-2 rounded-full border border-[#93c5fd] bg-white px-4 py-2 text-sm font-semibold text-[#1d4ed8] shadow-sm transition hover:border-[#1e40af] hover:bg-blue-50/80"
+                  className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-white px-4 py-2 text-sm font-semibold text-primary shadow-sm transition hover:border-primary hover:bg-surface-soft"
                 >
                   Talk to expert
                 </a>
@@ -74,9 +74,9 @@ export function ApplyLoanWizard() {
               <div className="flex justify-center overflow-x-auto overflow-y-hidden pb-1 [-ms-overflow-style:none] [scrollbar-width:none] sm:overflow-visible sm:pb-0 [&::-webkit-scrollbar]:hidden">
                 <h1 className="whitespace-nowrap text-center font-medium tracking-tight text-slate-800 text-[clamp(11px,2.85vw,2.5rem)] leading-tight sm:leading-snug">
                   Up to{" "}
-                  <span className="font-bold text-[#1e40af]">₹40 Lakhs</span>{" "}
+                  <span className="font-bold text-primary">₹40 Lakhs</span>{" "}
                   personal loan{" "}
-                  <span className="font-semibold text-[#2563eb]">
+                  <span className="font-semibold text-primary-light">
                     starting @ 11.5% p.a.
                   </span>
                 </h1>
@@ -120,7 +120,7 @@ export function ApplyLoanWizard() {
                       setPanError("");
                     }}
                     placeholder="Enter your PAN (10 characters)"
-                    className="h-[52px] w-full rounded-md border border-slate-200 bg-white px-4 text-[15px] text-slate-900 shadow-sm outline-none transition placeholder:text-slate-400 focus:border-[#1e40af] focus:ring-1 focus:ring-[#1e40af]/30"
+                    className="h-[52px] w-full rounded-md border border-slate-200 bg-white px-4 text-[15px] text-slate-900 shadow-sm outline-none transition placeholder:text-slate-400 focus:border-primary focus:ring-1 focus:ring-primary/30"
                     aria-invalid={Boolean(panError)}
                   />
                   {panError ? (
@@ -131,7 +131,7 @@ export function ApplyLoanWizard() {
                   <label className="sr-only" htmlFor="apply-phone">
                     Mobile number
                   </label>
-                  <div className="flex h-[52px] items-center rounded-md border border-slate-200 bg-white pr-1 shadow-sm transition focus-within:border-[#1e40af] focus-within:ring-1 focus-within:ring-[#1e40af]/30">
+                  <div className="flex h-[52px] items-center rounded-md border border-slate-200 bg-white pr-1 shadow-sm transition focus-within:border-primary focus-within:ring-1 focus-within:ring-primary/30">
                     <span className="shrink-0 pl-4 text-[15px] text-slate-500">
                       +91
                     </span>
@@ -161,7 +161,7 @@ export function ApplyLoanWizard() {
 
                 <button
                   type="submit"
-                  className="mt-2 flex h-[52px] w-full items-center justify-center rounded-md bg-[#1e40af] text-[15px] font-bold tracking-wide text-white shadow-md transition hover:bg-[#1d4ed8] hover:shadow-lg active:translate-y-px"
+                  className="mt-2 flex h-[52px] w-full items-center justify-center rounded-md bg-primary text-[15px] font-bold tracking-wide text-primary-foreground shadow-md transition hover:bg-[var(--primary-hover)] hover:shadow-lg active:translate-y-px"
                 >
                   Proceed
                 </button>
@@ -172,14 +172,14 @@ export function ApplyLoanWizard() {
                 Money Star&apos;s{" "}
                 <a
                   href="/terms"
-                  className="font-medium text-[#1e40af] underline-offset-2 hover:underline"
+                  className="font-medium text-primary underline-offset-2 hover:underline"
                 >
                   Terms of Use
                 </a>
                 ,{" "}
                 <a
                   href="/privacy"
-                  className="font-medium text-[#1e40af] underline-offset-2 hover:underline"
+                  className="font-medium text-primary underline-offset-2 hover:underline"
                 >
                   Privacy Policy
                 </a>{" "}
@@ -189,11 +189,11 @@ export function ApplyLoanWizard() {
           </div>
 
           {/* Trust — full-bleed soft band, airy stats with vertical rules */}
-          <div className="border-t border-slate-100/80 bg-[#f0f7fc] px-5 py-14 sm:px-8 sm:py-16 lg:py-20">
+          <div className="border-t border-slate-100/80 bg-surface-soft px-5 py-14 sm:px-8 sm:py-16 lg:py-20">
             <div className="mx-auto max-w-4xl text-center">
               <p className="mx-auto max-w-2xl text-[15px] font-normal leading-relaxed text-slate-700 sm:text-base">
                 Money Star is one of{" "}
-                <span className="font-semibold text-[#1e40af]">
+                <span className="font-semibold text-primary">
                   India&apos;s trusted loan
                 </span>{" "}
                 discovery partners.
@@ -222,7 +222,7 @@ export function ApplyLoanWizard() {
                   ["₹25,000 Cr+", "Loans facilitated"],
                 ].map(([v, l]) => (
                   <div key={l} className="px-6 py-8 text-center sm:py-6">
-                    <div className="text-xl font-bold tracking-tight text-[#1e40af] sm:text-2xl">
+                    <div className="text-xl font-bold tracking-tight text-primary sm:text-2xl">
                       {v}
                     </div>
                     <div className="mt-1.5 text-xs font-medium text-slate-600 sm:text-sm">
@@ -331,7 +331,7 @@ export function ApplyLoanWizard() {
                 </button>
                 <button
                   type="submit"
-                  className="h-12 flex-1 rounded-lg bg-[#1e40af] text-sm font-bold text-white shadow-sm transition hover:bg-[#1d4ed8] sm:max-w-xs"
+                  className="h-12 flex-1 rounded-lg bg-primary text-sm font-bold text-primary-foreground shadow-sm transition hover:bg-[var(--primary-hover)] sm:max-w-xs"
                 >
                   Continue
                 </button>
