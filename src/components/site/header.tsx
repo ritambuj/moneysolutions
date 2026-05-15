@@ -51,7 +51,7 @@ export function Header() {
 
         <div className="flex items-center gap-2">
           <a
-            href="/apply/offers"
+            href="/apply"
             className="hidden md:inline-flex h-10 items-center rounded-full bg-accent px-5 text-sm font-semibold text-accent-foreground shadow-sm transition hover:brightness-95"
           >
             Apply for loan
@@ -215,7 +215,7 @@ function MobileDrawer({ onClose }: { onClose: () => void }) {
           ))}
           <div className="mt-4 px-2">
             <a
-              href="/apply/offers"
+              href="/apply"
               className="inline-flex h-11 w-full items-center justify-center rounded-full bg-accent text-sm font-semibold text-accent-foreground"
             >
               Apply for loan

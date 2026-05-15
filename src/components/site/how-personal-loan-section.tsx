@@ -37,49 +37,61 @@ const SUB_GREY = "#5C6670";
 const RAIL = "#0e3d3a";
 const DOT_BORDER = "#C8CED4";
 
+/** Pick the step row whose vertical centre is closest to the viewport centre (stable while scrolling). */
+function pickStepClosestToViewportCenter(
+  nodes: readonly (HTMLElement | null)[]
+): number {
+  const list = nodes.filter((n): n is HTMLElement => Boolean(n));
+  if (!list.length) return 0;
+  if (typeof window === "undefined") return 0;
+  const mid = window.innerHeight / 2;
+  let bestIdx = 0;
+  let bestDist = Infinity;
+  for (let i = 0; i < list.length; i++) {
+    const r = list[i].getBoundingClientRect();
+    const cy = r.top + r.height / 2;
+    const d = Math.abs(cy - mid);
+    if (d < bestDist || (Math.abs(d - bestDist) < 2 && i < bestIdx)) {
+      bestDist = d;
+      bestIdx = i;
+    }
+  }
+  return bestIdx;
+}
+
 export function HowPersonalLoanSection() {
   const [active, setActive] = React.useState(0);
   const itemRefs = React.useRef<(HTMLLIElement | null)[]>([]);
-  const observerRef = React.useRef<IntersectionObserver | null>(null);
+  const rafRef = React.useRef<number>(0);
 
   React.useEffect(() => {
-    const setup = () => {
-      const nodes = itemRefs.current.filter(Boolean) as HTMLLIElement[];
-      if (!nodes.length) return;
-
-      observerRef.current?.disconnect();
-
-      observerRef.current = new IntersectionObserver(
-        (entries) => {
-          let best: IntersectionObserverEntry | undefined;
-          for (const e of entries) {
-            if (!e.isIntersecting) continue;
-            if (
-              !best ||
-              (e.intersectionRatio ?? 0) > (best.intersectionRatio ?? 0)
-            ) {
-              best = e;
-            }
-          }
-          if (!best?.target) return;
-          const idx = Number((best.target as HTMLElement).dataset.step);
-          if (!Number.isNaN(idx)) setActive(idx);
-        },
-        {
-          root: null,
-          rootMargin: "-42% 0px -42% 0px",
-          threshold: [0, 0.1, 0.2, 0.35, 0.5, 0.65, 0.8, 1],
-        }
-      );
-
-      nodes.forEach((n) => observerRef.current?.observe(n));
+    const flush = () => {
+      rafRef.current = 0;
+      const nodes = itemRefs.current;
+      if (!nodes.some(Boolean)) return;
+      const next = pickStepClosestToViewportCenter(nodes);
+      React.startTransition(() => {
+        setActive((prev) => (prev === next ? prev : next));
+      });
     };
 
-    const id = requestAnimationFrame(setup);
+    const schedule = () => {
+      if (rafRef.current) return;
+      rafRef.current = window.requestAnimationFrame(flush);
+    };
+
+    const id = requestAnimationFrame(() => {
+      flush();
+    });
+
+    window.addEventListener("scroll", schedule, { passive: true });
+    window.addEventListener("resize", schedule);
+
     return () => {
       cancelAnimationFrame(id);
-      observerRef.current?.disconnect();
-      observerRef.current = null;
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+      window.removeEventListener("scroll", schedule);
+      window.removeEventListener("resize", schedule);
     };
   }, []);
 
@@ -199,12 +211,12 @@ export function HowPersonalLoanSection() {
                 top: "max(5rem, calc(50svh - 12.5rem))",
               }}
             >
-              <div className="relative aspect-square w-full overflow-hidden rounded-full bg-white shadow-[0_12px_48px_rgba(14,61,58,0.14)] ring-2 ring-white/90">
+              <div className="relative aspect-square w-full isolate overflow-hidden rounded-full bg-white shadow-[0_12px_48px_rgba(14,61,58,0.14)] ring-2 ring-white/90 [contain:paint]">
                 {STEPS.map((step, i) => (
                   <div
                     key={step.title}
                     className={cn(
-                      "absolute inset-0 transition-opacity duration-300 ease-out",
+                      "absolute inset-0 transform-gpu transition-opacity duration-500 ease-out will-change-[opacity]",
                       active === i
                         ? "z-[1] opacity-100"
                         : "pointer-events-none z-0 opacity-0"

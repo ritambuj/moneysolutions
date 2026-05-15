@@ -33,7 +33,7 @@ export default function HomePage() {
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <a
-                  href="/apply/offers"
+                  href="/apply"
                   className="inline-flex h-12 items-center rounded-full bg-accent px-6 text-base font-semibold text-accent-foreground transition hover:brightness-95"
                 >
                   Apply for a loan

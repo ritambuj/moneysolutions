@@ -148,7 +148,7 @@ export function TimedPromoModal() {
             onSubmit={(e) => {
               e.preventDefault();
               dismiss();
-              router.push("/apply/offers");
+              router.push("/apply");
             }}
           >
             <div className="flex w-full max-w-lg flex-col gap-2 sm:flex-row sm:items-stretch">

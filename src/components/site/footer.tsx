@@ -110,7 +110,7 @@ export function Footer() {
 
             <div className="mt-8">
               <a
-                href="/apply/offers"
+                href="/apply"
                 className="inline-flex h-11 items-center rounded-full bg-accent px-6 text-sm font-semibold text-accent-foreground transition hover:brightness-95"
               >
                 Apply for a loan

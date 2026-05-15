@@ -134,7 +134,7 @@ export function EmiCalculator() {
               </div>
 
               <a
-                href="/apply/offers"
+                href="/apply"
                 className="mt-8 inline-flex h-12 w-full items-center justify-center rounded-full bg-accent px-6 text-base font-semibold text-accent-foreground shadow-sm transition hover:brightness-95"
               >
                 Apply for this loan

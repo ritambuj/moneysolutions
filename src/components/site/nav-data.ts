@@ -75,7 +75,7 @@ export const navItems: NavItem[] = [
       title: "Apply in 5 minutes",
       body: "Paperless approval, money to your account.",
       cta: "Get loan now",
-      href: "/apply/offers",
+      href: "/apply",
     },
   },
   {
@@ -159,6 +159,6 @@ export const navItems: NavItem[] = [
   },
   {
     label: "Apply for loan",
-    href: "/apply/offers",
+    href: "/apply",
   },
 ];
