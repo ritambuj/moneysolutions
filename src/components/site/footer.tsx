@@ -4,8 +4,6 @@ import {
   Briefcase,
   X as XIcon,
   Video,
-  Apple,
-  Smartphone,
   Mail,
   Phone,
   MapPin,
@@ -111,21 +109,12 @@ export function Footer() {
             </div>
 
             <div className="mt-8">
-              <div className="text-xs font-semibold uppercase tracking-[0.2em] text-white/50">
-                Get the app
-              </div>
-              <div className="mt-3 flex flex-wrap gap-3">
-                <StoreButton
-                  icon={<Apple className="h-6 w-6" />}
-                  caption="Download on"
-                  store="App Store"
-                />
-                <StoreButton
-                  icon={<Smartphone className="h-6 w-6" />}
-                  caption="Get it on"
-                  store="Google Play"
-                />
-              </div>
+              <a
+                href="/apply/offers"
+                className="inline-flex h-11 items-center rounded-full bg-accent px-6 text-sm font-semibold text-accent-foreground transition hover:brightness-95"
+              >
+                Apply for a loan
+              </a>
             </div>
           </div>
 
@@ -173,30 +162,5 @@ export function Footer() {
         </div>
       </div>
     </footer>
-  );
-}
-
-function StoreButton({
-  icon,
-  caption,
-  store,
-}: {
-  icon: React.ReactNode;
-  caption: string;
-  store: string;
-}) {
-  return (
-    <a
-      href="#"
-      className="flex items-center gap-3 rounded-xl border border-white/15 bg-white/5 px-4 py-2.5 transition hover:border-accent hover:bg-white/10"
-    >
-      <span className="text-white">{icon}</span>
-      <span className="flex flex-col leading-tight">
-        <span className="text-[10px] uppercase tracking-wider text-white/60">
-          {caption}
-        </span>
-        <span className="text-sm font-semibold text-white">{store}</span>
-      </span>
-    </a>
   );
 }

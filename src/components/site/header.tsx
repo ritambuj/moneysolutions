@@ -51,16 +51,10 @@ export function Header() {
 
         <div className="flex items-center gap-2">
           <a
-            href="#"
-            className="hidden md:inline-flex h-10 items-center rounded-full border border-primary px-5 text-sm font-semibold text-primary transition hover:bg-primary hover:text-primary-foreground"
-          >
-            Sign In
-          </a>
-          <a
-            href="#emi-calculator"
+            href="/apply/offers"
             className="hidden md:inline-flex h-10 items-center rounded-full bg-accent px-5 text-sm font-semibold text-accent-foreground shadow-sm transition hover:brightness-95"
           >
-            Get loan now
+            Apply for loan
           </a>
           <button
             type="button"
@@ -219,20 +213,20 @@ function MobileDrawer({ onClose }: { onClose: () => void }) {
           {navItems.map((item) => (
             <MobileNavItem key={item.label} item={item} />
           ))}
-          <div className="mt-4 grid grid-cols-2 gap-2 px-2">
+          <div className="mt-4 px-2">
             <a
-              href="#"
-              className="inline-flex h-11 items-center justify-center rounded-full border border-primary text-sm font-semibold text-primary"
+              href="/apply/offers"
+              className="inline-flex h-11 w-full items-center justify-center rounded-full bg-accent text-sm font-semibold text-accent-foreground"
             >
-              Sign In
-            </a>
-            <a
-              href="#emi-calculator"
-              className="inline-flex h-11 items-center justify-center rounded-full bg-accent text-sm font-semibold text-accent-foreground"
-            >
-              Get loan now
+              Apply for loan
             </a>
           </div>
+          <a
+            href="#emi-calculator"
+            className="mt-3 block px-2 text-center text-sm font-semibold text-primary underline-offset-2 hover:underline"
+          >
+            EMI calculator
+          </a>
         </nav>
       </div>
     </div>

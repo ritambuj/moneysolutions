@@ -1,15 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "d3gum1ht0lrpyf.cloudfront.net",
-        pathname: "/**",
-      },
-    ],
-  },
+  /* Add images.remotePatterns here if you load logos from a remote CDN again. */
 };
 
 export default nextConfig;

@@ -1,8 +1,15 @@
 import { Header } from "@/components/site/header";
 import { HeroPartnerLogos } from "@/components/site/hero-partner-logos";
-import { EmiCalculator } from "@/components/site/emi-calculator";
 import { TrustStrip } from "@/components/site/trust-strip";
+import { ProductsSection } from "@/components/site/products-section";
+import { HowPersonalLoanSection } from "@/components/site/how-personal-loan-section";
+import { WhyChooseSection } from "@/components/site/why-choose-section";
+import { EmiCalculator } from "@/components/site/emi-calculator";
+import { TestimonialsSection } from "@/components/site/testimonials-section";
+import { AwardsSection } from "@/components/site/awards-section";
+import { ApplyLoanCtaBand } from "@/components/site/apply-loan-cta-band";
 import { Footer } from "@/components/site/footer";
+import { TimedPromoModal } from "@/components/site/timed-promo-modal";
 
 export default function HomePage() {
   return (
@@ -22,20 +29,20 @@ export default function HomePage() {
               </h1>
               <p className="mt-5 max-w-xl text-base text-white/75 sm:text-lg">
                 Instant personal loans, transparent EMIs and flexible BNPL —
-                all in one app.
+                online, with the right lender match for your profile.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <a
-                  href="#emi-calculator"
+                  href="/apply/offers"
                   className="inline-flex h-12 items-center rounded-full bg-accent px-6 text-base font-semibold text-accent-foreground transition hover:brightness-95"
                 >
-                  Calculate EMI
+                  Apply for a loan
                 </a>
                 <a
-                  href="#"
+                  href="#emi-calculator"
                   className="inline-flex h-12 items-center rounded-full border border-white/30 px-6 text-base font-semibold text-white transition hover:bg-white/10"
                 >
-                  Download app
+                  Calculate EMI
                 </a>
               </div>
               <HeroPartnerLogos />
@@ -52,9 +59,16 @@ export default function HomePage() {
         </section>
 
         <TrustStrip />
+        <ProductsSection />
+        <HowPersonalLoanSection />
+        <WhyChooseSection />
         <EmiCalculator />
+        <TestimonialsSection />
+        <AwardsSection />
+        <ApplyLoanCtaBand />
       </main>
       <Footer />
+      <TimedPromoModal />
     </>
   );
 }
