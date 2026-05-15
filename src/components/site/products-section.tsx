@@ -1,18 +1,17 @@
 import {
   Banknote,
-  Zap,
-  PiggyBank,
-  Wallet,
-  ArrowRight,
-  ShieldCheck,
-  Calculator,
+  Home,
+  Building2,
   CreditCard,
   HeartPulse,
+  Shield,
+  ArrowRight,
+  Calculator,
   type LucideIcon,
 } from "lucide-react";
 
 const intro =
-  "One place for life’s planned and unplanned expenses — from travel to medical bills. Borrow digitally, repay on your schedule, and track everything in one place on the web.";
+  "One solution for life’s planned and unplanned expenses. Compare regulated products, apply digitally, and get expert guidance from Money Star.";
 
 const products: {
   title: string;
@@ -21,28 +20,28 @@ const products: {
   icon: LucideIcon;
 }[] = [
   {
-    title: "Instant cash loan",
-    description: "Get funds in your bank account within minutes after approval.",
-    href: "#",
-    icon: Zap,
-  },
-  {
     title: "Personal loan",
-    description: "Higher limits, flexible tenure and no collateral for eligible profiles.",
-    href: "#",
+    description: "Flexible unsecured loans for expenses, travel or milestones.",
+    href: "/services/personal-loan",
     icon: Banknote,
   },
   {
-    title: "BNPL & EMIs",
-    description: "Split large purchases into affordable instalments at partner merchants.",
-    href: "#",
-    icon: PiggyBank,
+    title: "Home loan",
+    description: "Competitive rates for purchase, construction or balance transfer.",
+    href: "/services/home-loan",
+    icon: Home,
   },
   {
-    title: "Salary-linked line",
-    description: "Revolving credit aligned to your income — draw only what you need.",
-    href: "#",
-    icon: Wallet,
+    title: "Loan against property",
+    description: "Unlock property value while retaining ownership.",
+    href: "/services/loan-against-property",
+    icon: Building2,
+  },
+  {
+    title: "Credit card",
+    description: "Rewards, convenience and security from partner banks.",
+    href: "/services/credit-card",
+    icon: CreditCard,
   },
 ];
 
@@ -53,28 +52,28 @@ const more: {
   icon: LucideIcon;
 }[] = [
   {
-    title: "Credit score check",
-    description: "See where you stand and get tips to improve eligibility.",
-    href: "#",
-    icon: ShieldCheck,
+    title: "Health insurance",
+    description: "Family floater and cashless hospital cover.",
+    href: "/services/health-insurance",
+    icon: HeartPulse,
   },
   {
-    title: "Eligibility calculator",
-    description: "Estimate how much you can borrow before you apply.",
-    href: "#",
+    title: "Life insurance",
+    description: "Term and savings plans for your dependents.",
+    href: "/services/life-insurance",
+    icon: Shield,
+  },
+  {
+    title: "EMI calculator",
+    description: "Plan monthly repayments before you apply.",
+    href: "/#emi-calculator",
     icon: Calculator,
   },
   {
-    title: "Co-branded card",
-    description: "Spend smart with rewards and controlled limits.",
-    href: "#",
-    icon: CreditCard,
-  },
-  {
-    title: "Wellness for teams",
-    description: "Employer programmes for advances and financial education.",
-    href: "#",
-    icon: HeartPulse,
+    title: "All services",
+    description: "View the full Money Star product catalogue.",
+    href: "/services",
+    icon: ArrowRight,
   },
 ];
 
@@ -87,7 +86,7 @@ export function ProductsSection() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl text-center">
           <h2 className="text-2xl font-semibold tracking-tight text-foreground sm:text-3xl lg:text-4xl">
-            Our products
+            Featured services
           </h2>
           <p className="mt-4 text-base text-muted-foreground sm:text-lg">
             {intro}
@@ -123,11 +122,11 @@ export function ProductsSection() {
 
         <div className="mt-20 border-t border-border pt-16">
           <h3 className="text-center text-xl font-semibold text-foreground sm:text-2xl">
-            More from MoneySolution
+            More from Money Star
           </h3>
           <p className="mx-auto mt-3 max-w-2xl text-center text-sm text-muted-foreground sm:text-base">
-            Tools and add-ons that sit alongside your loan — so you can borrow
-            with context, not guesswork.
+            Insurance, calculators and the full partner network — so you can
+            borrow with context, not guesswork.
           </p>
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {more.map((p) => {

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <title>MoneyStar app icon</title>
+  <rect width="512" height="512" rx="115" ry="115" fill="#0A2240"></rect>
+  <g transform="translate(256,256) scale(3.0)">
+    <path fill="#FFFFFF" fill-rule="evenodd" d="M0,-46 L46,0 L0,46 L-46,0 Z M0,-22 L-4.94,-6.8 L-20.92,-6.8 L-7.99,2.6 L-12.93,17.8 L0,8.4 L12.93,17.8 L7.99,2.6 L20.92,-6.8 L4.94,-6.8 Z"></path>
+  </g>
+</svg>

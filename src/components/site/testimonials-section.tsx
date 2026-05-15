@@ -23,7 +23,7 @@ export const TESTIMONIALS: Testimonial[] = [
     id: "1",
     headline: "Instant loan in minutes",
     quote:
-      "I needed funds for a medical emergency and did not want to wait. MoneySolution approved and disbursed to my bank in minutes — the process was completely digital and stress-free.",
+      "I needed funds for a medical emergency and did not want to wait. Money Star approved and disbursed to my bank in minutes — the process was completely digital and stress-free.",
     name: "Subham Pawar",
     avatarSrc: "/images/testimonials/subham-pawar.svg",
   },
@@ -39,7 +39,7 @@ export const TESTIMONIALS: Testimonial[] = [
     id: "3",
     headline: "Reliable loan provider",
     quote:
-      "MoneySolution has been a lifesaver. The process was fast and hassle-free, and support was professional throughout. I could clear urgent expenses without visiting a branch.",
+      "Money Star has been a lifesaver. The process was fast and hassle-free, and support was professional throughout. I could clear urgent expenses without visiting a branch.",
     name: "Sonal Agarwal",
     avatarSrc: "/images/testimonials/sonal-agarwal.svg",
   },

@@ -169,16 +169,16 @@ export function ApplyLoanWizard() {
 
               <p className="mx-auto mt-8 max-w-[22rem] text-center text-[12px] leading-relaxed text-slate-500 sm:mt-10 sm:text-[13px]">
                 By clicking on proceed, you have read and agree to
-                MoneySolution&apos;s{" "}
+                Money Star&apos;s{" "}
                 <a
-                  href="#"
+                  href="/terms"
                   className="font-medium text-[#1e40af] underline-offset-2 hover:underline"
                 >
                   Terms of Use
                 </a>
                 ,{" "}
                 <a
-                  href="#"
+                  href="/privacy"
                   className="font-medium text-[#1e40af] underline-offset-2 hover:underline"
                 >
                   Privacy Policy
@@ -192,7 +192,7 @@ export function ApplyLoanWizard() {
           <div className="border-t border-slate-100/80 bg-[#f0f7fc] px-5 py-14 sm:px-8 sm:py-16 lg:py-20">
             <div className="mx-auto max-w-4xl text-center">
               <p className="mx-auto max-w-2xl text-[15px] font-normal leading-relaxed text-slate-700 sm:text-base">
-                MoneySolution is one of{" "}
+                Money Star is one of{" "}
                 <span className="font-semibold text-[#1e40af]">
                   India&apos;s trusted loan
                 </span>{" "}

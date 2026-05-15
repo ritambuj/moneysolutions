@@ -106,7 +106,7 @@ export function HowPersonalLoanSection() {
           className="text-2xl font-semibold tracking-tight sm:text-3xl lg:text-4xl"
           style={{ color: MIDNIGHT }}
         >
-          How to Get a Personal Loan From MoneySolution?
+          How to Get a Personal Loan From Money Star?
         </h2>
         <p
           className="mx-auto mt-4 max-w-4xl text-base leading-relaxed sm:text-lg"

@@ -4,13 +4,13 @@ import * as React from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import {
-  BadgePercent,
   Monitor,
   X,
   Zap,
   Wallet,
   BadgeCheck,
 } from "lucide-react";
+import { BRAND_LOGOS } from "@/lib/brand-logos";
 
 const STORAGE_KEY = "ms-timed-promo-dismissed";
 /** Show after the user has been on the page this long (ms). */
@@ -191,7 +191,7 @@ function PromoVisual() {
         {desktopOk ? (
           <Image
             src="/images/promo/popup-desktop-view.png"
-            alt="MoneySolution promotional graphic"
+            alt="Money Star promotional graphic"
             fill
             className="object-cover object-center"
             sizes="367px"
@@ -206,7 +206,7 @@ function PromoVisual() {
         {mobileOk ? (
           <Image
             src="/images/promo/popup-mobile-view.png"
-            alt="MoneySolution promotional graphic"
+            alt="Money Star promotional graphic"
             width={626}
             height={322}
             className="h-full w-full rounded-2xl object-cover"
@@ -228,13 +228,17 @@ function PromoFallback({ className }: { className?: string }) {
       className={`flex items-center justify-center bg-gradient-to-br from-[#fce4ec] to-[#F9E1E8] ${className ?? ""}`}
     >
       <div className="flex flex-col items-center gap-2 p-6 text-center">
-        <BadgePercent
-          className="h-16 w-16 text-primary opacity-90"
-          strokeWidth={1.25}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={BRAND_LOGOS.icon.duotone}
+          alt=""
+          width={64}
+          height={64}
+          className="h-16 w-16"
           aria-hidden
         />
         <span className="text-sm font-semibold text-primary">
-          MoneySolution
+          Money Star
         </span>
         <span className="max-w-[240px] text-xs text-muted-foreground">
           Add{" "}

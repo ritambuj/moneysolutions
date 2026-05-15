@@ -9,9 +9,13 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "MoneySolution — Personal Loans, EMI Calculator & More",
+  title: "Money Star — Personal Loans, Home Loans & EMI Calculator",
   description:
-    "Instant personal loans, BNPL, and financial wellness — calculate your EMI in seconds.",
+    "Compare personal loans, home loans and insurance from 100+ banks and NBFCs. Apply online with Money Star.",
+  icons: {
+    icon: "/images/logos/favicon.svg",
+    apple: "/images/logos/app-icon.svg",
+  },
 };
 
 export default function RootLayout({

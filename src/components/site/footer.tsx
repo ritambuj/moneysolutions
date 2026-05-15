@@ -9,62 +9,49 @@ import {
   MapPin,
 } from "lucide-react";
 import { Logo } from "./logo";
+import { SITE } from "@/lib/site";
 
 const sitemap: { heading: string; links: { label: string; href: string }[] }[] =
   [
     {
-      heading: "Loans",
+      heading: "Services",
       links: [
-        { label: "Personal Loan", href: "#" },
-        { label: "Instant Cash Loan", href: "#" },
-        { label: "Salary Advance", href: "#" },
-        { label: "Loan against Mutual Funds", href: "#" },
-      ],
-    },
-    {
-      heading: "BNPL",
-      links: [
-        { label: "Healthcare", href: "#" },
-        { label: "Education", href: "#" },
-        { label: "Travel", href: "#" },
-        { label: "Solar", href: "#" },
-        { label: "E-commerce", href: "#" },
-      ],
-    },
-    {
-      heading: "Calculators",
-      links: [
-        { label: "EMI Calculator", href: "#emi-calculator" },
-        { label: "Eligibility Calculator", href: "#" },
-        { label: "Credit Score Check", href: "#" },
-        { label: "Interest Rate Compare", href: "#" },
+        { label: "Personal Loan", href: "/services/personal-loan" },
+        { label: "Home Loan", href: "/services/home-loan" },
+        { label: "Loan Against Property", href: "/services/loan-against-property" },
+        { label: "Credit Card", href: "/services/credit-card" },
+        { label: "Health Insurance", href: "/services/health-insurance" },
+        { label: "Life Insurance", href: "/services/life-insurance" },
       ],
     },
     {
       heading: "Company",
       links: [
-        { label: "About Us", href: "#" },
-        { label: "Careers", href: "#" },
-        { label: "Newsroom", href: "#" },
-        { label: "Blog", href: "#" },
-        { label: "Contact", href: "#" },
+        { label: "About Us", href: "/about" },
+        { label: "Contact", href: "/contact" },
+        { label: "Blog", href: "/blog" },
+        { label: "FAQs", href: "/faq" },
+      ],
+    },
+    {
+      heading: "Calculators",
+      links: [
+        { label: "EMI Calculator", href: "/#emi-calculator" },
+        { label: "Apply for loan", href: "/apply" },
       ],
     },
     {
       heading: "Legal",
       links: [
-        { label: "Terms of Use", href: "#" },
-        { label: "Privacy Policy", href: "#" },
-        { label: "Grievance Redressal", href: "#" },
-        { label: "Fair Practices Code", href: "#" },
-        { label: "Interest Rate Policy", href: "#" },
+        { label: "Terms of Use", href: "/terms" },
+        { label: "Privacy Policy", href: "/privacy" },
       ],
     },
   ];
 
 const socials = [
-  { icon: Briefcase, href: "#", label: "LinkedIn" },
-  { icon: Camera, href: "#", label: "Instagram" },
+  { icon: Briefcase, href: SITE.social.linkedin, label: "LinkedIn" },
+  { icon: Camera, href: SITE.social.instagram, label: "Instagram" },
   { icon: Globe, href: "#", label: "Facebook" },
   { icon: XIcon, href: "#", label: "X" },
   { icon: Video, href: "#", label: "YouTube" },
@@ -79,31 +66,30 @@ export function Footer() {
           <div>
             <Logo variant="light" />
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-white/65">
-              Personal loans, BNPL and financial wellness products built to fit
-              the way you actually live and pay.
+              {SITE.description}
             </p>
 
             <div className="mt-8 space-y-3 text-sm text-white/75">
               <a
-                href="mailto:hello@moneysolution.example"
+                href={`mailto:${SITE.email}`}
                 className="flex items-center gap-3 hover:text-white"
               >
                 <Mail className="h-4 w-4 text-accent" />
-                hello@moneysolution.example
+                {SITE.email}
               </a>
               <a
-                href="tel:+911800000000"
+                href={`tel:${SITE.phone.replace(/\s/g, "")}`}
                 className="flex items-center gap-3 hover:text-white"
               >
                 <Phone className="h-4 w-4 text-accent" />
-                1800-000-000 (toll-free)
+                {SITE.phone}
               </a>
               <div className="flex items-start gap-3">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
                 <span>
-                  4th Floor, Example Tower, MG Road,
+                  {SITE.address.line1}
                   <br />
-                  Bengaluru 560001, India
+                  {SITE.address.line2}
                 </span>
               </div>
             </div>
@@ -118,7 +104,7 @@ export function Footer() {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 md:grid-cols-5">
+          <div className="grid grid-cols-2 gap-8 sm:grid-cols-2 md:grid-cols-4">
             {sitemap.map((col) => (
               <div key={col.heading}>
                 <div className="text-sm font-semibold text-white">
@@ -143,9 +129,8 @@ export function Footer() {
 
         <div className="mt-14 flex flex-col items-start justify-between gap-6 border-t border-white/10 pt-8 sm:flex-row sm:items-center">
           <p className="text-xs leading-relaxed text-white/55 sm:max-w-3xl">
-            © {year} MoneySolution. All rights reserved. Loans are subject to
-            credit assessment by partner lenders. Interest rates and processing
-            fees vary based on profile.
+            © {year} {SITE.legalName}. All rights reserved. Loans are subject to
+            credit assessment by partner lenders.
           </p>
           <div className="flex items-center gap-2">
             {socials.map(({ icon: Icon, href, label }) => (

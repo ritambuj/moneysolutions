@@ -1,21 +1,15 @@
 import {
   Banknote,
-  Wallet,
-  GraduationCap,
-  Plane,
-  Stethoscope,
-  ShoppingBag,
-  Sun,
-  PiggyBank,
+  Home,
+  Building2,
+  CreditCard,
+  HeartPulse,
   Shield,
-  TrendingUp,
   Calculator,
   CheckCircle2,
   BookOpen,
-  Newspaper,
   HelpCircle,
-  Briefcase,
-  Building2,
+  Building,
   Phone,
   type LucideIcon,
 } from "lucide-react";
@@ -46,87 +40,68 @@ export type NavItem = {
 
 export const navItems: NavItem[] = [
   {
-    label: "Loans",
+    label: "Services",
     groups: [
       {
         links: [
           {
-            title: "Instant Personal Loan",
-            href: "#",
-            description: "Get up to ₹5 lakh instantly",
+            title: "Personal Loan",
+            href: "/services/personal-loan",
+            description: "Unsecured loans for your goals",
             icon: Banknote,
           },
           {
-            title: "Cash Loan",
-            href: "#",
-            description: "Same-day disbursal",
-            icon: Wallet,
+            title: "Home Loan",
+            href: "/services/home-loan",
+            description: "Purchase or transfer your home loan",
+            icon: Home,
           },
           {
-            title: "Salary Advance",
-            href: "#",
-            description: "Up to 70% of monthly salary",
-            icon: PiggyBank,
+            title: "Loan Against Property",
+            href: "/services/loan-against-property",
+            icon: Building2,
+          },
+          {
+            title: "Credit Card",
+            href: "/services/credit-card",
+            icon: CreditCard,
+          },
+          {
+            title: "Health Insurance",
+            href: "/services/health-insurance",
+            icon: HeartPulse,
+          },
+          {
+            title: "Life Insurance",
+            href: "/services/life-insurance",
+            icon: Shield,
           },
         ],
       },
     ],
     featured: {
-      title: "Apply in 5 minutes",
-      body: "Paperless approval, money to your account.",
-      cta: "Get loan now",
-      href: "/apply",
+      title: "All services",
+      body: "Compare loans and insurance from 100+ partners.",
+      cta: "View services",
+      href: "/services",
     },
   },
   {
-    label: "Our Offerings",
-    groups: [
-      {
-        heading: "New Launches",
-        links: [
-          {
-            title: "Loan against Mutual Funds",
-            href: "#",
-            icon: TrendingUp,
-          },
-          { title: "Fixed Deposits", href: "#", icon: PiggyBank },
-          { title: "Insurance", href: "#", icon: Shield },
-        ],
-      },
-      {
-        heading: "Buy Now, Pay Later",
-        links: [
-          { title: "Healthcare", href: "#", icon: Stethoscope },
-          { title: "Education", href: "#", icon: GraduationCap },
-          { title: "Travel", href: "#", icon: Plane },
-          { title: "Solar", href: "#", icon: Sun },
-          { title: "E-commerce", href: "#", icon: ShoppingBag },
-        ],
-      },
-    ],
-  },
-  {
-    label: "Loan Calculators",
+    label: "Calculators",
     groups: [
       {
         links: [
           {
             title: "EMI Calculator",
-            href: "#emi-calculator",
+            href: "/#emi-calculator",
             description: "Plan your monthly repayments",
             icon: Calculator,
           },
           {
-            title: "Eligibility Calculator",
-            href: "#",
-            description: "Check what you qualify for",
+            title: "Apply for loan",
+            href: "/apply",
+            description: "Start your application",
             icon: CheckCircle2,
-          },
-          {
-            title: "Credit Score Check",
-            href: "#",
-            description: "Free, no impact on score",
-            icon: TrendingUp,
           },
         ],
       },
@@ -137,9 +112,8 @@ export const navItems: NavItem[] = [
     groups: [
       {
         links: [
-          { title: "Blog & Articles", href: "#", icon: BookOpen },
-          { title: "Financial Glossary", href: "#", icon: Newspaper },
-          { title: "Quizzes", href: "#", icon: HelpCircle },
+          { title: "Blog & Articles", href: "/blog", icon: BookOpen },
+          { title: "FAQs", href: "/faq", icon: HelpCircle },
         ],
       },
     ],
@@ -149,10 +123,8 @@ export const navItems: NavItem[] = [
     groups: [
       {
         links: [
-          { title: "Our Story", href: "#", icon: Building2 },
-          { title: "Careers", href: "#", icon: Briefcase },
-          { title: "Newsroom", href: "#", icon: Newspaper },
-          { title: "Contact Us", href: "#", icon: Phone },
+          { title: "About Money Star", href: "/about", icon: Building },
+          { title: "Contact Us", href: "/contact", icon: Phone },
         ],
       },
     ],

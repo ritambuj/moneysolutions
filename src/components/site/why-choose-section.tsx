@@ -33,7 +33,7 @@ export function WhyChooseSection() {
         <div className="grid gap-12 lg:grid-cols-2 lg:items-center lg:gap-16">
           <div>
             <h2 className="text-2xl font-semibold tracking-tight text-foreground sm:text-3xl lg:text-4xl">
-              Why choose MoneySolution?
+              Why choose Money Star?
             </h2>
             <p className="mt-4 text-base leading-relaxed text-muted-foreground sm:text-lg">
               Handle last-minute expenses and planned upgrades with a personal

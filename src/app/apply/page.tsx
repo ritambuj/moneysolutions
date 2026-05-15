@@ -4,7 +4,7 @@ import { Footer } from "@/components/site/footer";
 import { ApplyLoanWizard } from "@/components/apply/apply-loan-wizard";
 
 export const metadata: Metadata = {
-  title: "Apply for a loan — MoneySolution",
+  title: "Apply for a loan — Money Star",
   description:
     "Start your personal loan application with PAN and mobile. Tell us a bit more to see matched offers.",
 };

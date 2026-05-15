@@ -4,7 +4,7 @@ import { Footer } from "@/components/site/footer";
 import { EligibleOffersView } from "@/components/site/eligible-offers-view";
 
 export const metadata: Metadata = {
-  title: "Eligible offers — MoneySolution",
+  title: "Eligible offers — Money Star",
   description:
     "Review tentative loan offers matched to your profile and apply with partner lenders.",
 };
