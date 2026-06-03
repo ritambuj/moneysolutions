@@ -143,7 +143,7 @@ export interface User {
   collection: 'users';
 }
 /**
- * Loan and contact enquiries captured from the website.
+ * All website enquiries including Contact us, apply flow, promo modal, and offer applications.
  *
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "leads".
@@ -151,9 +151,11 @@ export interface User {
 export interface Lead {
   id: number;
   source: 'apply_step1' | 'apply_complete' | 'contact' | 'promo_modal' | 'offer_apply';
-  selectedLender?: string | null;
-  phone: string;
   name?: string | null;
+  phone: string;
+  loanInterest?: string | null;
+  message?: string | null;
+  selectedLender?: string | null;
   /**
    * Stored for loan applications only. Handle per your privacy policy.
    */
@@ -161,8 +163,6 @@ export interface Lead {
   employment?: string | null;
   income?: string | null;
   pincode?: string | null;
-  loanInterest?: string | null;
-  message?: string | null;
   status?: ('new' | 'contacted' | 'qualified' | 'closed') | null;
   updatedAt: string;
   createdAt: string;
@@ -269,15 +269,15 @@ export interface UsersSelect<T extends boolean = true> {
  */
 export interface LeadsSelect<T extends boolean = true> {
   source?: T;
-  selectedLender?: T;
-  phone?: T;
   name?: T;
+  phone?: T;
+  loanInterest?: T;
+  message?: T;
+  selectedLender?: T;
   pan?: T;
   employment?: T;
   income?: T;
   pincode?: T;
-  loanInterest?: T;
-  message?: T;
   status?: T;
   updatedAt?: T;
   createdAt?: T;

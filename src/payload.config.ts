@@ -26,5 +26,8 @@ export default buildConfig({
     pool: {
       connectionString: process.env.DATABASE_URL || "",
     },
+    // Avoid Drizzle schema push on every dev reload (saves RAM + DB churn).
+    // Set PAYLOAD_DB_PUSH=true once when collections change, then restart dev.
+    push: process.env.PAYLOAD_DB_PUSH === "true",
   }),
 });

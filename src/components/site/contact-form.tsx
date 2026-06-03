@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { createLead } from "@/lib/leads";
+import { submitContactForm } from "@/lib/leads";
 
 const LOAN_TYPES = [
   "Personal Loan",
@@ -11,7 +11,9 @@ const LOAN_TYPES = [
   "Health Insurance",
   "Life Insurance",
   "Other",
-];
+] as const;
+
+const PHONE_RE = /^[6-9]\d{9}$/;
 
 export function ContactForm() {
   const [submitted, setSubmitted] = React.useState(false);
@@ -20,23 +22,34 @@ export function ContactForm() {
 
   const [name, setName] = React.useState("");
   const [phone, setPhone] = React.useState("");
-  const [loanInterest, setLoanInterest] = React.useState(LOAN_TYPES[0]);
+  const [loanInterest, setLoanInterest] = React.useState<string>(LOAN_TYPES[0]);
   const [message, setMessage] = React.useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSaving(true);
     setError("");
 
-    const result = await createLead({
-      source: "contact",
-      phone,
-      name,
+    const trimmedName = name.trim();
+    const digitsPhone = phone.replace(/\D/g, "").slice(-10);
+
+    if (!trimmedName) {
+      setError("Please enter your full name.");
+      return;
+    }
+    if (!PHONE_RE.test(digitsPhone)) {
+      setError("Enter a valid 10-digit Indian mobile number.");
+      return;
+    }
+
+    setSaving(true);
+    const result = await submitContactForm({
+      name: trimmedName,
+      phone: digitsPhone,
       loanInterest,
       message,
     });
-
     setSaving(false);
+
     if (!result.ok) {
       setError(result.error);
       return;
@@ -48,11 +61,13 @@ export function ContactForm() {
     <form
       className="rounded-2xl border border-border bg-white p-6 shadow-sm sm:p-8"
       onSubmit={handleSubmit}
+      noValidate
     >
       <h2 className="text-xl font-semibold text-foreground">Send a message</h2>
       {submitted ? (
         <p className="mt-4 text-sm text-muted-foreground">
-          Thank you. Our team will contact you shortly.
+          Thank you. Your details have been received and our team will contact
+          you shortly.
         </p>
       ) : (
         <div className="mt-6 space-y-4">
@@ -62,7 +77,9 @@ export function ContactForm() {
             </label>
             <input
               id="contact-name"
+              name="name"
               required
+              autoComplete="name"
               value={name}
               onChange={(e) => setName(e.target.value)}
               className="mt-1.5 h-11 w-full rounded-lg border border-border px-3 text-sm outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"
@@ -74,12 +91,17 @@ export function ContactForm() {
             </label>
             <input
               id="contact-phone"
+              name="phone"
               type="tel"
+              inputMode="numeric"
+              autoComplete="tel"
               required
+              maxLength={10}
               value={phone}
               onChange={(e) =>
                 setPhone(e.target.value.replace(/\D/g, "").slice(0, 10))
               }
+              placeholder="10-digit mobile number"
               className="mt-1.5 h-11 w-full rounded-lg border border-border px-3 text-sm outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"
             />
           </div>
@@ -89,6 +111,7 @@ export function ContactForm() {
             </label>
             <select
               id="contact-loan"
+              name="loanInterest"
               value={loanInterest}
               onChange={(e) => setLoanInterest(e.target.value)}
               className="mt-1.5 h-11 w-full rounded-lg border border-border bg-white px-3 text-sm outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"
@@ -106,6 +129,7 @@ export function ContactForm() {
             </label>
             <textarea
               id="contact-message"
+              name="message"
               rows={4}
               value={message}
               onChange={(e) => setMessage(e.target.value)}

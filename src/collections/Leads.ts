@@ -14,8 +14,9 @@ export const Leads: CollectionConfig = {
   slug: "leads",
   admin: {
     useAsTitle: "phone",
-    defaultColumns: ["phone", "source", "name", "createdAt"],
-    description: "Loan and contact enquiries captured from the website.",
+    defaultColumns: ["name", "phone", "loanInterest", "source", "status", "createdAt"],
+    description:
+      "All website enquiries including Contact us, apply flow, promo modal, and offer applications.",
   },
   access: {
     create: () => false,
@@ -37,9 +38,9 @@ export const Leads: CollectionConfig = {
       ],
     },
     {
-      name: "selectedLender",
+      name: "name",
       type: "text",
-      label: "Lender applied for",
+      label: "Full name",
     },
     {
       name: "phone",
@@ -47,8 +48,19 @@ export const Leads: CollectionConfig = {
       required: true,
     },
     {
-      name: "name",
+      name: "loanInterest",
       type: "text",
+      label: "Product interest",
+    },
+    {
+      name: "message",
+      type: "textarea",
+      label: "Message",
+    },
+    {
+      name: "selectedLender",
+      type: "text",
+      label: "Lender applied for",
     },
     {
       name: "pan",
@@ -68,15 +80,6 @@ export const Leads: CollectionConfig = {
     {
       name: "pincode",
       type: "text",
-    },
-    {
-      name: "loanInterest",
-      type: "text",
-      label: "Product interest",
-    },
-    {
-      name: "message",
-      type: "textarea",
     },
     {
       name: "status",
