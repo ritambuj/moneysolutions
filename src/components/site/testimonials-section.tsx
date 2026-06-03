@@ -71,7 +71,7 @@ function TestimonialCard({ t }: { t: Testimonial }) {
   return (
     <div
       className={cn(
-        "relative m-2 flex h-[26rem] w-full flex-col overflow-hidden rounded-lg border border-border bg-white p-4 sm:h-[27rem] lg:h-[28rem] lg:p-6"
+        "relative m-2 flex min-h-[22rem] w-full flex-col overflow-hidden rounded-lg border border-border bg-white p-4 sm:min-h-[24rem] lg:min-h-[28rem] lg:p-6"
       )}
     >
       <Image
@@ -170,7 +170,7 @@ export function TestimonialsSection() {
 
   return (
     <section
-      className="bg-white px-6 pb-20 pt-4 lg:px-8 lg:pb-[130px] lg:pt-0"
+      className="bg-white px-4 pb-16 pt-4 sm:px-6 sm:pb-20 lg:px-8 lg:pb-[130px] lg:pt-0"
       id="testimonialsData"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}

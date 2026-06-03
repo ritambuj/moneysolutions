@@ -19,7 +19,7 @@ export default function AboutPage() {
         subtitle={`Since ${SITE.founded}, we have helped customers across India find the right home loans, personal loans, credit cards and insurance — with transparency and expert guidance.`}
       />
 
-      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+      <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
           <div>
             <h2 className="text-2xl font-semibold text-foreground sm:text-3xl">
@@ -47,7 +47,7 @@ export default function AboutPage() {
               Contact us
             </Link>
           </div>
-          <div className="rounded-2xl border border-border bg-muted/40 p-8">
+          <div className="rounded-2xl border border-border bg-muted/40 p-5 sm:p-8">
             <h3 className="text-lg font-semibold text-foreground">
               Mission &amp; vision
             </h3>

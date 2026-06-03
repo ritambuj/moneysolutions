@@ -56,7 +56,7 @@ export function EmiCalculator() {
 
         <div className="mt-12 overflow-hidden rounded-3xl border border-border bg-white shadow-[0_24px_60px_rgba(14,31,35,0.06)]">
           <div className="grid lg:grid-cols-[1.2fr_1fr]">
-            <div className="p-6 sm:p-10 lg:border-r lg:border-border">
+            <div className="p-5 sm:p-10 lg:border-r lg:border-border">
               <SliderField
                 label="Loan amount"
                 valueDisplay={formatInr(amount)}
@@ -99,7 +99,7 @@ export function EmiCalculator() {
               />
             </div>
 
-            <div className="bg-primary p-6 sm:p-10 text-white">
+            <div className="bg-primary p-5 sm:p-10 text-white">
               <div className="text-sm font-medium uppercase tracking-wider text-white/60">
                 Your monthly EMI
               </div>
@@ -206,7 +206,7 @@ function SliderField({
                 setEditing(false);
               }
             }}
-            className="w-40 rounded-lg border-2 border-primary bg-white px-3 py-1.5 text-right text-base font-bold text-primary outline-none"
+            className="w-full max-w-[9rem] rounded-lg border-2 border-primary bg-white px-3 py-1.5 text-right text-base font-bold text-primary outline-none sm:max-w-[10rem]"
           />
         ) : (
           <button

@@ -32,7 +32,7 @@ export default async function BlogPostPage({ params }: Props) {
 
   return (
     <PageShell>
-      <article className="mx-auto max-w-3xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
+      <article className="mx-auto max-w-3xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8 lg:py-16">
         <Link
           href="/blog"
           className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline"

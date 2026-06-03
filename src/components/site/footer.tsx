@@ -61,8 +61,8 @@ export function Footer() {
   const year = new Date().getFullYear();
   return (
     <footer className="bg-footer text-white">
-      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <div className="grid gap-12 lg:grid-cols-[1.1fr_2fr]">
+      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
+        <div className="grid gap-10 sm:gap-12 lg:grid-cols-[1.1fr_2fr]">
           <div>
             <Logo variant="light" />
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-white/65">
@@ -104,7 +104,7 @@ export function Footer() {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-8 sm:grid-cols-2 md:grid-cols-4">
+          <div className="grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-2 md:grid-cols-4 md:gap-8">
             {sitemap.map((col) => (
               <div key={col.heading}>
                 <div className="text-sm font-semibold text-white">

@@ -11,6 +11,7 @@ import {
   BadgeCheck,
 } from "lucide-react";
 import { BRAND_LOGOS } from "@/lib/brand-logos";
+import { createLead } from "@/lib/leads";
 
 const STORAGE_KEY = "ms-timed-promo-dismissed";
 /** Show after the user has been on the page this long (ms). */
@@ -38,6 +39,8 @@ const perks = [
 export function TimedPromoModal() {
   const router = useRouter();
   const [open, setOpen] = React.useState(false);
+  const [mobile, setMobile] = React.useState("");
+  const [saving, setSaving] = React.useState(false);
   const closeRef = React.useRef<HTMLButtonElement>(null);
 
   const dismiss = React.useCallback(() => {
@@ -143,8 +146,14 @@ export function TimedPromoModal() {
           </p>
           <form
             className="mt-1"
-            onSubmit={(e) => {
+            onSubmit={async (e) => {
               e.preventDefault();
+              const digits = mobile.replace(/\D/g, "").slice(-10);
+              if (digits.length === 10) {
+                setSaving(true);
+                await createLead({ source: "promo_modal", phone: digits });
+                setSaving(false);
+              }
               dismiss();
               router.push("/apply");
             }}
@@ -158,6 +167,10 @@ export function TimedPromoModal() {
                 name="mobile"
                 inputMode="numeric"
                 autoComplete="tel"
+                value={mobile}
+                onChange={(e) =>
+                  setMobile(e.target.value.replace(/\D/g, "").slice(0, 10))
+                }
                 placeholder="Enter mobile number"
                 className="w-full rounded-lg border border-border bg-white p-3 text-center text-sm text-foreground shadow-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/30 lg:mr-2 lg:p-4 lg:text-left lg:text-xl"
                 aria-describedby="btn-step-1"
@@ -165,10 +178,15 @@ export function TimedPromoModal() {
               <button
                 type="submit"
                 id="btn-step-1"
-                className="w-full shrink-0 rounded-lg border border-primary bg-primary px-3 py-2.5 text-base font-semibold text-primary-foreground shadow-sm transition hover:brightness-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary sm:w-2/5 lg:py-4 lg:text-xl"
+                disabled={saving}
+                className="w-full shrink-0 rounded-lg border border-primary bg-primary px-3 py-2.5 text-base font-semibold text-primary-foreground shadow-sm transition hover:brightness-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:opacity-60 sm:w-2/5 lg:py-4 lg:text-xl"
               >
-                <span className="hidden lg:inline">Get loan now</span>
-                <span className="lg:hidden">Get loan</span>
+                <span className="hidden lg:inline">
+                  {saving ? "Saving…" : "Get loan now"}
+                </span>
+                <span className="lg:hidden">
+                  {saving ? "Saving…" : "Get loan"}
+                </span>
               </button>
             </div>
           </form>

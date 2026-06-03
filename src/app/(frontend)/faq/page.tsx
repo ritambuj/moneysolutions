@@ -14,7 +14,7 @@ export default function FaqPage() {
         title="Frequently asked questions"
         subtitle="Clear answers about our products, process and partner lenders."
       />
-      <section className="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
+      <section className="mx-auto max-w-3xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
         <FaqAccordion />
       </section>
     </PageShell>

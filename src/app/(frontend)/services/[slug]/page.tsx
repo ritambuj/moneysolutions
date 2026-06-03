@@ -31,7 +31,7 @@ export default async function ServiceDetailPage({ params }: Props) {
   return (
     <PageShell>
       <section className="border-b border-border bg-primary text-primary-foreground">
-        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8">
           <Link
             href="/services"
             className="inline-flex items-center gap-2 text-sm text-white/80 hover:text-white"
@@ -39,7 +39,7 @@ export default async function ServiceDetailPage({ params }: Props) {
             <ArrowLeft className="h-4 w-4" />
             All services
           </Link>
-          <div className="mt-6 flex items-start gap-4">
+          <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:items-start">
             <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-white/10">
               <Icon className="h-7 w-7" />
             </span>
@@ -51,9 +51,9 @@ export default async function ServiceDetailPage({ params }: Props) {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <div className="grid gap-12 lg:grid-cols-3">
-          <div className="lg:col-span-2">
+      <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
+        <div className="grid gap-10 lg:grid-cols-3 lg:gap-12">
+          <div className="order-2 lg:order-1 lg:col-span-2">
             <p className="text-base leading-relaxed text-muted-foreground">
               {service.description}
             </p>
@@ -67,7 +67,7 @@ export default async function ServiceDetailPage({ params }: Props) {
               ))}
             </ul>
           </div>
-          <aside className="rounded-2xl border border-border bg-muted/30 p-6 h-fit">
+          <aside className="order-1 h-fit rounded-2xl border border-border bg-muted/30 p-5 sm:p-6 lg:order-2">
             <h3 className="font-semibold text-foreground">Get started</h3>
             <p className="mt-2 text-sm text-muted-foreground">
               Compare partner offers and apply online with guidance from our team.

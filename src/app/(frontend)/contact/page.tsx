@@ -17,7 +17,7 @@ export default function ContactPage() {
         subtitle="Speak with our team for loan enquiries, referrals or support. We're here to help."
       />
 
-      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+      <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-[1fr_1.1fr] lg:gap-16">
           <div className="space-y-8">
             <div>

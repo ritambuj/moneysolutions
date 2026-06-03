@@ -4,6 +4,8 @@ import * as React from "react";
 import { useRouter } from "next/navigation";
 import { Menu, Percent, Handshake } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { createLead } from "@/lib/leads";
+import { saveApplyProfile } from "@/lib/apply-session";
 
 const EMPLOYMENT = ["Salaried", "Self-employed"] as const;
 
@@ -25,11 +27,13 @@ export function ApplyLoanWizard() {
   const [income, setIncome] = React.useState("");
   const [pincode, setPincode] = React.useState("");
   const [pincodeError, setPincodeError] = React.useState("");
+  const [submitError, setSubmitError] = React.useState("");
+  const [saving, setSaving] = React.useState(false);
 
   const normalizedPan = pan.trim().toUpperCase().replace(/\s/g, "");
   const digitsPhone = phone.replace(/\D/g, "").slice(-10);
 
-  const goStep2 = (e: React.FormEvent) => {
+  const goStep2 = async (e: React.FormEvent) => {
     e.preventDefault();
     let ok = true;
     if (!PAN_RE.test(normalizedPan)) {
@@ -41,10 +45,24 @@ export function ApplyLoanWizard() {
       ok = false;
     } else setPhoneError("");
     if (!ok) return;
+
+    setSaving(true);
+    setSubmitError("");
+    const result = await createLead({
+      source: "apply_step1",
+      phone: digitsPhone,
+      pan: normalizedPan,
+    });
+    setSaving(false);
+
+    if (!result.ok) {
+      setSubmitError(result.error);
+      return;
+    }
     setStep(2);
   };
 
-  const finish = (e: React.FormEvent) => {
+  const finish = async (e: React.FormEvent) => {
     e.preventDefault();
     const pc = pincode.replace(/\D/g, "").slice(0, 6);
     if (!PINCODE_RE.test(pc)) {
@@ -52,6 +70,29 @@ export function ApplyLoanWizard() {
       return;
     }
     setPincodeError("");
+    setSaving(true);
+    setSubmitError("");
+    const result = await createLead({
+      source: "apply_complete",
+      phone: digitsPhone,
+      pan: normalizedPan,
+      employment,
+      income,
+      pincode: pc,
+    });
+    setSaving(false);
+
+    if (!result.ok) {
+      setSubmitError(result.error);
+      return;
+    }
+    saveApplyProfile({
+      phone: digitsPhone,
+      pan: normalizedPan,
+      employment,
+      income,
+      pincode: pc,
+    });
     router.push("/apply/offers");
   };
 
@@ -60,7 +101,7 @@ export function ApplyLoanWizard() {
       {step === 1 ? (
         <>
           {/* Hero — full-width air, narrow reading column (Paisabazaar-style proportions) */}
-          <div className="bg-white px-5 pt-10 pb-16 sm:px-8 sm:pt-14 sm:pb-20 lg:px-12 lg:pt-16 lg:pb-24">
+          <div className="bg-white px-4 pt-8 pb-12 sm:px-8 sm:pt-14 sm:pb-20 lg:px-12 lg:pt-16 lg:pb-24">
             <div className="mx-auto w-full max-w-5xl text-center">
               <div className="mb-8 flex justify-center sm:mb-10">
                 <a
@@ -71,18 +112,16 @@ export function ApplyLoanWizard() {
                 </a>
               </div>
 
-              <div className="flex justify-center overflow-x-auto overflow-y-hidden pb-1 [-ms-overflow-style:none] [scrollbar-width:none] sm:overflow-visible sm:pb-0 [&::-webkit-scrollbar]:hidden">
-                <h1 className="whitespace-nowrap text-center font-medium tracking-tight text-slate-800 text-[clamp(11px,2.85vw,2.5rem)] leading-tight sm:leading-snug">
-                  Up to{" "}
-                  <span className="font-bold text-primary">₹40 Lakhs</span>{" "}
-                  personal loan{" "}
-                  <span className="font-semibold text-primary-light">
-                    starting @ 11.5% p.a.
-                  </span>
-                </h1>
-              </div>
+              <h1 className="text-center text-2xl font-medium leading-snug tracking-tight text-slate-800 sm:text-3xl md:text-4xl">
+                Up to{" "}
+                <span className="font-bold text-primary">₹40 Lakhs</span>{" "}
+                personal loan{" "}
+                <span className="font-semibold text-primary-light">
+                  starting @ 11.5% p.a.
+                </span>
+              </h1>
 
-              <div className="mt-10 flex flex-row flex-nowrap justify-center gap-2 overflow-x-auto pb-1 [-ms-overflow-style:none] [scrollbar-width:none] sm:mt-12 sm:gap-3 sm:overflow-visible sm:pb-0 [&::-webkit-scrollbar]:hidden">
+              <div className="mt-8 flex flex-wrap justify-center gap-2 sm:mt-12 sm:gap-3">
                 <span className="inline-flex shrink-0 items-center gap-1.5 whitespace-nowrap rounded-full border border-emerald-100 bg-emerald-50/90 px-2.5 py-2 text-left text-[10px] font-medium text-emerald-900 shadow-sm min-[400px]:gap-2 min-[400px]:px-3 min-[400px]:text-xs sm:px-4 sm:text-sm">
                   <Percent
                     className="h-3.5 w-3.5 shrink-0 text-emerald-600 sm:h-4 sm:w-4"
@@ -101,7 +140,7 @@ export function ApplyLoanWizard() {
 
               <form
                 onSubmit={goStep2}
-                className="mx-auto mt-14 w-full max-w-md space-y-5 text-left sm:mt-16"
+                className="mx-auto mt-10 w-full max-w-md space-y-5 text-left sm:mt-14"
                 noValidate
               >
                 <div>
@@ -159,11 +198,15 @@ export function ApplyLoanWizard() {
                   ) : null}
                 </div>
 
+                {submitError ? (
+                  <p className="text-sm text-red-600">{submitError}</p>
+                ) : null}
                 <button
                   type="submit"
-                  className="mt-2 flex h-[52px] w-full items-center justify-center rounded-md bg-primary text-[15px] font-bold tracking-wide text-primary-foreground shadow-md transition hover:bg-[var(--primary-hover)] hover:shadow-lg active:translate-y-px"
+                  disabled={saving}
+                  className="mt-2 flex h-[52px] w-full items-center justify-center rounded-md bg-primary text-[15px] font-bold tracking-wide text-primary-foreground shadow-md transition hover:bg-[var(--primary-hover)] hover:shadow-lg active:translate-y-px disabled:opacity-60"
                 >
-                  Proceed
+                  {saving ? "Saving…" : "Proceed"}
                 </button>
               </form>
 
@@ -321,19 +364,24 @@ export function ApplyLoanWizard() {
                 )}
               </div>
 
+              {submitError ? (
+                <p className="text-sm text-red-600">{submitError}</p>
+              ) : null}
               <div className="flex flex-col gap-3 pt-2 sm:flex-row sm:justify-between">
                 <button
                   type="button"
                   onClick={() => setStep(1)}
-                  className="h-12 rounded-lg border border-slate-300 px-6 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
+                  disabled={saving}
+                  className="h-12 rounded-lg border border-slate-300 px-6 text-sm font-semibold text-slate-700 transition hover:bg-slate-50 disabled:opacity-60"
                 >
                   Back
                 </button>
                 <button
                   type="submit"
-                  className="h-12 flex-1 rounded-lg bg-primary text-sm font-bold text-primary-foreground shadow-sm transition hover:bg-[var(--primary-hover)] sm:max-w-xs"
+                  disabled={saving}
+                  className="h-12 flex-1 rounded-lg bg-primary text-sm font-bold text-primary-foreground shadow-sm transition hover:bg-[var(--primary-hover)] disabled:opacity-60 sm:max-w-xs"
                 >
-                  Continue
+                  {saving ? "Saving…" : "Continue"}
                 </button>
               </div>
             </form>

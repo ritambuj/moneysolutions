@@ -10,7 +10,7 @@ export default function TermsPage() {
   return (
     <PageShell>
       <PageHero title="Terms of use" />
-      <article className="prose prose-slate mx-auto max-w-3xl px-4 py-12 sm:px-6 lg:px-8">
+      <article className="prose prose-slate mx-auto max-w-3xl px-4 py-10 sm:px-6 sm:py-12 lg:px-8">
         <p className="text-sm text-muted-foreground">Last updated: May 2026</p>
         <p className="mt-6 text-muted-foreground">
           These terms govern your use of the {SITE.name} website and services

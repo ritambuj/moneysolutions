@@ -17,7 +17,7 @@ export default function ServicesPage() {
         title="Services we offer"
         subtitle="Valuable services that simplify your loan search and help you make informed borrowing decisions."
       />
-      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+      <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {SERVICES.map(({ slug, title, shortDescription, icon: Icon }) => (
             <Link

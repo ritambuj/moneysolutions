@@ -19,9 +19,9 @@ export default function BlogPage() {
         subtitle="Practical guides to borrow smarter — from CIBIL tips to product comparisons."
       />
 
-      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+      <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
         <article className="overflow-hidden rounded-2xl border border-border bg-white shadow-md lg:flex">
-          <div className="flex flex-1 flex-col justify-center p-8 lg:p-10">
+          <div className="flex flex-1 flex-col justify-center p-5 sm:p-8 lg:p-10">
             <span className="text-xs font-semibold uppercase tracking-wider text-primary">
               {featured.category}
             </span>

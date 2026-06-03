@@ -34,7 +34,7 @@ export function Header() {
       onMouseLeave={() => setOpenIndex(null)}
     >
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center gap-10">
+        <div className="flex min-w-0 items-center gap-4 lg:gap-10">
           <Logo />
           <nav className="hidden lg:flex items-center gap-1">
             {navItems.map((item, i) => (
