@@ -26,6 +26,10 @@ export default buildConfig({
   db: postgresAdapter({
     pool: {
       connectionString: process.env.DATABASE_URL || "",
+      // Supabase requires SSL; pooler URI should include ?sslmode=require
+      ...(process.env.DATABASE_URL?.includes("supabase")
+        ? { ssl: { rejectUnauthorized: false } }
+        : {}),
     },
     // Avoid Drizzle schema push on every dev reload (saves RAM + DB churn).
     // Set PAYLOAD_DB_PUSH=true once when collections change, then restart dev.

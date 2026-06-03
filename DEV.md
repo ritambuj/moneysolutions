@@ -20,6 +20,8 @@ This app runs **Next.js + Payload CMS + Postgres**. Dev mode is heavy (~2–4 GB
    ```
    After you change collections in code, run `npm run db:migrate:create` (name your migration), then `npm run db:migrate`.
 
+   **Troubleshooting:** If logs say `database "ritambujdubey" does not exist`, `DATABASE_URL` is empty or malformed — Node is using a default local DB named after your Mac user. Paste the full Supabase pooler URI (must end with `/postgres`), restart dev, then run `npm run db:migrate` again.
+
 ## Commands
 
 | Command | Use when |
