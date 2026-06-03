@@ -30,6 +30,13 @@ This app runs **Next.js + Payload CMS + Postgres**. Dev mode is heavy (~2–4 GB
 
 Dev is capped at **4 GB** heap via `NODE_OPTIONS` so Node cannot grow without bound and freeze your Mac.
 
+## Admin hydration warnings (Grammarly / extensions)
+
+If the browser console shows mismatches on `<body>` such as `data-gr-ext-installed` or `data-new-gr-c-s-check-loaded`, that is **Grammarly** (or another extension) changing the DOM before React hydrates — not a bug in this repo.
+
+- Disable the extension on `localhost`, or use a private/incognito window with extensions off for `/admin`.
+- This project patches Payload so `suppressHydrationWarning` also applies to `<body>` when `admin.suppressHydrationWarning` is enabled (see `patches/`).
+
 ## If RAM is still high
 
 - Close other Chrome/Cursor windows; Payload admin is memory-heavy.
