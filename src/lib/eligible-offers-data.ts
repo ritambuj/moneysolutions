@@ -41,7 +41,7 @@ export const ELIGIBLE_OFFERS: EligibleOfferRow[] = [
     lenderName: "Tata Capital",
     logo: {
       id: "tata-capital",
-      src: "/images/partners/tata_capital.svg",
+      src: "/images/partners/tata.svg",
       alt: "Tata Capital",
     },
     initials: "TC",

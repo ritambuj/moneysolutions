@@ -10,10 +10,10 @@ import {
   Wallet,
   BadgeCheck,
 } from "lucide-react";
-import { BRAND_LOGOS } from "@/lib/brand-logos";
 import { createLead } from "@/lib/leads";
 
 const STORAGE_KEY = "ms-timed-promo-dismissed";
+const PROMO_IMAGE = "/images/promo/timed-modal.png";
 /** Show after the user has been on the page this long (ms). */
 const SHOW_AFTER_MS = 22_000;
 
@@ -196,77 +196,17 @@ export function TimedPromoModal() {
   );
 }
 
-/** Left column: use branded images from `/public` when present; otherwise fallback art. */
 function PromoVisual() {
-  const [desktopOk, setDesktopOk] = React.useState(true);
-  const [mobileOk, setMobileOk] = React.useState(true);
-
   return (
-    <div className="flex h-[161px] w-full shrink-0 items-center justify-center overflow-hidden rounded-t-2xl bg-[#F9E1E8] lg:h-full lg:min-h-[480px] lg:w-[367px] lg:rounded-l-2xl lg:rounded-tr-none lg:rounded-se-none">
-      <div className="relative hidden h-full min-h-[200px] w-full lg:block">
-        {desktopOk ? (
-          <Image
-            src="/images/promo/popup-desktop-view.png"
-            alt="Money Star promotional graphic"
-            fill
-            className="object-cover object-center"
-            sizes="367px"
-            priority
-            onError={() => setDesktopOk(false)}
-          />
-        ) : (
-          <PromoFallback className="h-full w-full rounded-2xl lg:rounded-l-2xl" />
-        )}
-      </div>
-      <div className="relative block h-full w-full lg:hidden">
-        {mobileOk ? (
-          <Image
-            src="/images/promo/popup-mobile-view.png"
-            alt="Money Star promotional graphic"
-            width={626}
-            height={322}
-            className="h-full w-full rounded-2xl object-cover"
-            sizes="100vw"
-            priority
-            onError={() => setMobileOk(false)}
-          />
-        ) : (
-          <PromoFallback className="h-full min-h-[140px] w-full rounded-2xl" />
-        )}
-      </div>
-    </div>
-  );
-}
-
-function PromoFallback({ className }: { className?: string }) {
-  return (
-    <div
-      className={`flex items-center justify-center bg-gradient-to-br from-[#fce4ec] to-[#F9E1E8] ${className ?? ""}`}
-    >
-      <div className="flex flex-col items-center gap-2 p-6 text-center">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={BRAND_LOGOS.blue}
-          alt="Money Star"
-          width={120}
-          height={62}
-          className="h-12 w-auto max-w-[200px] object-contain sm:h-14"
-        />
-        <span className="text-sm font-semibold text-primary">
-          Money Star
-        </span>
-        <span className="max-w-[240px] text-xs text-muted-foreground">
-          Add{" "}
-          <code className="rounded bg-white/60 px-1">
-            public/images/promo/popup-desktop-view.png
-          </code>{" "}
-          and{" "}
-          <code className="rounded bg-white/60 px-1">
-            public/images/promo/popup-mobile-view.png
-          </code>{" "}
-          for your promo art.
-        </span>
-      </div>
+    <div className="relative flex h-[200px] w-full shrink-0 overflow-hidden rounded-t-2xl bg-[#F9E1E8] sm:h-[240px] lg:h-full lg:min-h-[480px] lg:w-[367px] lg:rounded-l-2xl lg:rounded-tr-none lg:rounded-se-none">
+      <Image
+        src={PROMO_IMAGE}
+        alt="Couple planning finances on a laptop"
+        fill
+        className="object-cover object-center"
+        sizes="(max-width: 1024px) 100vw, 367px"
+        priority
+      />
     </div>
   );
 }

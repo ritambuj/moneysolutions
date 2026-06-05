@@ -6,7 +6,11 @@ export type PartnerMark = {
 
 /** Logos in `public/images/partners/`. First seven appear in the hero strip (+ “more”). */
 export const LENDING_PARTNERS: PartnerMark[] = [
-  { id: "tata", src: "/images/partners/tata.svg", alt: "Tata Capital" },
+  {
+    id: "tata",
+    src: "/images/partners/tata.svg",
+    alt: "Tata Capital",
+  },
   {
     id: "kotak",
     src: "/images/partners/kotak_aa4604849b.svg",
@@ -23,7 +27,7 @@ export const LENDING_PARTNERS: PartnerMark[] = [
     src: "/images/partners/indusind_88fb65b8b2.svg",
     alt: "IndusInd Bank",
   },
-  { id: "unico", src: "/images/partners/unico.svg", alt: "Unico" },
+  { id: "unico", src: "/images/partners/unico.webp", alt: "Unico" },
   {
     id: "kb",
     src: "/images/partners/kb_7d45472a9b.svg",
