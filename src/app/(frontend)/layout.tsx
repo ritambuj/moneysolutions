@@ -13,8 +13,8 @@ export const metadata: Metadata = {
   description:
     "Compare personal loans, home loans and insurance from 100+ banks and NBFCs. Apply online with Money Star.",
   icons: {
-    icon: "/images/logos/favicon.svg",
-    apple: "/images/logos/app-icon.svg",
+    icon: "/images/logos/logo-blue.png",
+    apple: "/images/logos/logo-blue.png",
   },
 };
 

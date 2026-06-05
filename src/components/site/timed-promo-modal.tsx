@@ -246,12 +246,11 @@ function PromoFallback({ className }: { className?: string }) {
       <div className="flex flex-col items-center gap-2 p-6 text-center">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src={BRAND_LOGOS.icon.duotone}
-          alt=""
-          width={64}
-          height={64}
-          className="h-16 w-16"
-          aria-hidden
+          src={BRAND_LOGOS.blue}
+          alt="Money Star"
+          width={120}
+          height={62}
+          className="h-12 w-auto max-w-[200px] object-contain sm:h-14"
         />
         <span className="text-sm font-semibold text-primary">
           Money Star

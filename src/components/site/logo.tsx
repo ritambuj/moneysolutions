@@ -1,45 +1,32 @@
-import {
-  logoDimensions,
-  logoSrc,
-  type LogoLayout,
-  type LogoVariant,
-} from "@/lib/brand-logos";
+import { logoDimensions, logoSrc, type LogoVariant } from "@/lib/brand-logos";
 import { cn } from "@/lib/utils";
 
 export function Logo({
   className,
   variant = "default",
-  layout = "full",
 }: {
   className?: string;
-  /** `light` — lockup for dark backgrounds (footer). */
+  /** `light` — white logo for dark backgrounds (e.g. footer). */
   variant?: LogoVariant;
-  /** `signet` — icon-only mark. */
-  layout?: LogoLayout;
 }) {
-  const isSignet = layout === "signet";
-  const height = isSignet ? 40 : 36;
-  const { width } = logoDimensions(layout, height);
-  const src = logoSrc(layout, variant);
+  const height = 40;
+  const { width } = logoDimensions(height);
+  const src = logoSrc(variant);
 
   return (
     <a
       href="/"
       aria-label="Money Star home"
-      className={cn("inline-flex items-center", className)}
+      className={cn("inline-flex shrink-0 items-center", className)}
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={src}
-        alt=""
+        alt="Money Star"
         width={width}
         height={height}
-        className={cn(
-          "w-auto object-contain",
-          isSignet ? "h-9 w-9 sm:h-10 sm:w-10" : "h-8 sm:h-9"
-        )}
+        className="h-8 w-auto object-contain sm:h-10"
       />
-      <span className="sr-only text-lg font-bold tracking-tight">Money Star</span>
     </a>
   );
 }
