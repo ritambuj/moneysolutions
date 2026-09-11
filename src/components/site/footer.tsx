@@ -31,6 +31,9 @@ const sitemap: { heading: string; links: { label: string; href: string }[] }[] =
         { label: "Contact", href: "/contact" },
         { label: "Blog", href: "/blog" },
         { label: "FAQs", href: "/faq" },
+        { label: "Bajaj Markets", href: "/partners/bajaj-markets" },
+        { label: "IDFC FIRST Bank", href: "/partners/idfc-first-bank" },
+        { label: "Kotak Mahindra Bank", href: "/partners/kotak-mahindra-bank" },
       ],
     },
     {
